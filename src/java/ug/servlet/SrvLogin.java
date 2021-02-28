@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import ug.bean.UsuarioSesion;
 import ug.cliente.rest.ApiClienteUniversidad;
 
 /**
@@ -39,8 +41,24 @@ public class SrvLogin extends HttpServlet {
         String respText;
         ApiClienteUniversidad ARest = new ApiClienteUniversidad();
         
-        switch (tarea) {
-            case "ConsultaUsuarios":
+        
+        /**
+         * Sesion 
+         */
+        HttpSession mySession = request.getSession(true);
+        
+        System.out.println("opcion: " + tarea);
+        System.out.println("usuario: " + request.getParameter("usuario"));
+        System.out.println("pass: " + request.getParameter("pass"));
+        
+        UsuarioSesion us = new UsuarioSesion();
+        us.setPassword(request.getParameter("pass"));
+        us.setUsuario(request.getParameter("usuario"));
+        
+        mySession.setAttribute("usuarioSesion",us);
+        
+//        switch (tarea) {
+//            case "ConsultaUsuarios":
 //                    respText = ws.ProcesoFinal("PRC_TRX_LOGIN", parametros);
 //                    respText = ARest.getUsuario();
 //                    resp_json = new JSONObject(respText);
@@ -90,7 +108,7 @@ public class SrvLogin extends HttpServlet {
 //                break;
 //            default:
 //                throw new AssertionError();
-        }
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

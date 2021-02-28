@@ -16,7 +16,11 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "http://localhost:8080/apiuniversidad/webresources/universidad/getUsuario?usuario="+usuario+"&contrasenia="+pass
+            url: "SrvLogin",
+            data: {opcion: 'ConsultaUsuarios',
+                    usuario: usuario,
+                    pass: pass }
+//            url: "http://localhost:8080/apiuniversidad/webresources/universidad/getUsuario?usuario="+usuario+"&contrasenia="+pass
         }).done(function (data, textStatus, jqXHR) {
             console.log(data);
             if(data.codRespuesta == "000"){
