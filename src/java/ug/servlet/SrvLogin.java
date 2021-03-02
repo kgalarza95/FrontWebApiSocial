@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import ug.bean.UsuarioSesion;
-import ug.cliente.rest.ApiClienteUniversidad;
+import ug.cliente.rest.ApiUniversidad;
 
 /**
  *
@@ -39,17 +39,18 @@ public class SrvLogin extends HttpServlet {
         
         String tarea = request.getParameter("opcion");
         String respText;
-        ApiClienteUniversidad ARest = new ApiClienteUniversidad();
+        ApiUniversidad ARest = new ApiUniversidad();
         
         
         /**
          * Sesion 
          */
         HttpSession mySession = request.getSession(true);
-        
+        String usuario = request.getParameter("usuario");
+        String pass =request.getParameter("pass");
         System.out.println("opcion: " + tarea);
-        System.out.println("usuario: " + request.getParameter("usuario"));
-        System.out.println("pass: " + request.getParameter("pass"));
+        System.out.println("usuario: " + usuario);
+        System.out.println("pass: " + pass);
         
         UsuarioSesion us = new UsuarioSesion();
         us.setPassword(request.getParameter("pass"));
@@ -57,6 +58,8 @@ public class SrvLogin extends HttpServlet {
         
         mySession.setAttribute("usuarioSesion",us);
         
+        String jsonResp=ARest.getUsuario(usuario, pass);
+        System.out.println("LLega : "+jsonResp);
 //        switch (tarea) {
 //            case "ConsultaUsuarios":
 //                    respText = ws.ProcesoFinal("PRC_TRX_LOGIN", parametros);

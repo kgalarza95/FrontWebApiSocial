@@ -14,7 +14,7 @@ import javax.ws.rs.client.WebTarget;
  * [universidad]<br>
  * USAGE:
  * <pre>
- *        ApiClienteUniversidad client = new ApiClienteUniversidad();
+ *        ApiUniversidad client = new ApiUniversidad();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -22,13 +22,13 @@ import javax.ws.rs.client.WebTarget;
  *
  * @author KevinGalarza
  */
-public class ApiClienteUniversidad {
+public class ApiUniversidad {
 
     private WebTarget webTarget;
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/apiuniversidad/webresources";
 
-    public ApiClienteUniversidad() {
+    public ApiUniversidad() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("universidad");
     }
@@ -37,8 +37,21 @@ public class ApiClienteUniversidad {
         webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON));
     }
 
-    public String getUsuario() throws ClientErrorException {
+    public String getUsuarios() throws ClientErrorException {
         WebTarget resource = webTarget;
+        resource = resource.path("getUsuarios");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
+    }
+
+    public String getUsuario(String usuario, String contrasenia) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        if (usuario != null) {
+            resource = resource.queryParam("usuario", usuario);
+        }
+        if (contrasenia != null) {
+            resource = resource.queryParam("contrasenia", contrasenia);
+        }
+        resource = resource.path("getUsuario");
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
     }
 
