@@ -5,8 +5,11 @@
  */
 package ug.servlet;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Iterator;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +17,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONObject;
+import org.json.JSONWriter;
 import ug.bean.UsuarioSesion;
 import ug.cliente.rest.ApiUniversidad;
 
@@ -36,82 +41,59 @@ public class SrvLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        String tarea = request.getParameter("opcion");
-        String respText;
+
+        String opcion = request.getParameter("opcion");
+        String respText, menRespuesta = "009", codRespuesta = "Error - no usada", respParametros = "";
         ApiUniversidad ARest = new ApiUniversidad();
-        
-        
+        PrintWriter out = response.getWriter();
+        //formando JOSON
+        StringWriter stringWriter = new StringWriter();
+        JSONWriter writer = new JSONWriter(stringWriter);
+        JSONObject resJson = null;
+
         /**
-         * Sesion 
+         * Sesion
          */
         HttpSession mySession = request.getSession(true);
-        String usuario = request.getParameter("usuario");
-        String pass =request.getParameter("pass");
-        System.out.println("opcion: " + tarea);
-        System.out.println("usuario: " + usuario);
-        System.out.println("pass: " + pass);
-        
+        System.out.println("opcion: " + opcion);
         UsuarioSesion us = new UsuarioSesion();
         us.setPassword(request.getParameter("pass"));
         us.setUsuario(request.getParameter("usuario"));
-        
-        mySession.setAttribute("usuarioSesion",us);
-        
-        String jsonResp=ARest.getUsuario(usuario, pass);
-        System.out.println("LLega : "+jsonResp);
-//        switch (tarea) {
-//            case "ConsultaUsuarios":
-//                    respText = ws.ProcesoFinal("PRC_TRX_LOGIN", parametros);
-//                    respText = ARest.getUsuario();
-//                    resp_json = new JSONObject(respText);
-//                    if (resp_json.get("CodResponse").equals("00")) {
-//                        VSSessiones.setAttribute("Session", "true");
-//                        VSSessiones.setAttribute("Session_Usuario", usuario);
-//                        VSSessiones.setAttribute("Session_Empresas", "");
-//                        JSONObject obj_jscontrol = XML.toJSONObject(resp_json.get("pv_dat1_response").toString());
-//                        cmb_empresas += "<option value = '0' disabled selected>Seleccione Empresa</option>";
-//                        if (Integer.parseInt(resp_json.get("pv_dat2_response").toString()) > 1) {
-//                            JSONArray jsonArray = obj_jscontrol.getJSONArray("empresas");
-//                            for (int i = 0; i < jsonArray.length(); i++) {
-//                                try {
-//                                    JSONObject json = jsonArray.getJSONObject(i);
-//                                    cmb_empresas += "<option value='" + json.getInt("cod_empresa") + "'>" + json.getString("nombre_empresa") + "</option>";
-//                                } catch (JSONException e) {
-//                                    System.out.println(e.toString());
-//                                    CodResponse = "99";
-//                                    MsjResponse = "Error al mostrar las empresas.";
-//                                }
-//                            }
-//                        } else {
-//                            Iterator<?> permisos = obj_jscontrol.keys();
-//                            while (permisos.hasNext()) {
-//                                String key = (String) permisos.next();
-//                                cmb_empresas += "<option value='" + obj_jscontrol.getJSONObject(key).getInt("cod_empresa") + "'>" + obj_jscontrol.getJSONObject(key).getString("nombre_empresa") + "</option>";
-//                            }
-//                        }
-//                        VSSessiones.setAttribute("Session_Empresas", cmb_empresas);
-//                    } else {
-//                        VSSessiones.invalidate();
-//                    }
-//                    CodResponse = resp_json.get("CodResponse").toString();
-//                    MsjResponse = resp_json.get("MsjResponse").toString();
-//                } catch (JSONException e) {
-//                    System.out.println(e.toString());
-//                    CodResponse = "99";
-//                    MsjResponse = "Error al ejecuta el Login";
-//                } finally {
-//                    writer.object();
-//                    writer.key("empresas").value(cmb_empresas);
-//                    writer.key("CodResponse").value(CodResponse);
-//                    writer.key("MsjResponse").value(MsjResponse);
-//                    writer.endObject();
-//                }
-//                out.print(stringWriter.toString());
-//                break;
-//            default:
-//                throw new AssertionError();
-//        }
+        mySession.setAttribute("usuarioSesion", us);
+
+//        String jsonResp = 
+        switch (opcion) {
+            case "ConsultaUsuario":
+                try {
+                    String usuario = request.getParameter("usuario");
+                    String pass = request.getParameter("pass");
+
+                    respText = ARest.getUsuario(usuario, pass);
+                    resJson = new JSONObject(respText);
+                    System.out.println("Json transf "+resJson);
+                    if (resJson.get("codRespuesta").equals("000") || resJson.get("codRespuesta").equals("002")) {
+                        respParametros = resJson.get("listUsuarios").toString();
+                    }
+                    codRespuesta = resJson.get("codRespuesta").toString();
+                    menRespuesta = resJson.get("menRespuesta").toString();
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                    codRespuesta = "099";
+                    menRespuesta = "Error en servlet al consultar usuario";
+                } finally {
+                    writer.object();
+                    writer.key("respParametros").value(respParametros);
+                    writer.key("codRespuesta").value(codRespuesta);
+                    writer.key("menRespuesta").value(menRespuesta);
+                    writer.endObject();
+                }
+//                out.println(stringWriter.getBuffer());
+                out.print(stringWriter.toString());
+                break;
+
+            default:
+                throw new AssertionError();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
