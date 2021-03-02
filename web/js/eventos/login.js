@@ -7,8 +7,8 @@ $(document).ready(function () {
         event.preventDefault();
         //alert('page did not reload');
     });
-    
-    
+
+
     $('#btn_acceder').click(function () {
         usuario = $("#txt_usuario").val();
         pass = $("#txt_contrasenia").val();
@@ -17,16 +17,22 @@ $(document).ready(function () {
             type: "GET",
             dataType: "json",
             url: "SrvLogin",
-            data: {opcion: 'ConsultaUsuarios',
-                    usuario: usuario,
-                    pass: pass }
+            data: {opcion: 'ConsultaUsuario',
+                usuario: usuario,
+                pass: pass}
 //            url: "http://localhost:8080/apiuniversidad/webresources/universidad/getUsuario?usuario="+usuario+"&contrasenia="+pass
         }).done(function (data, textStatus, jqXHR) {
             console.log(data);
-            if(data.codRespuesta == "000"){
-                $(location).attr('href','index.jsp');
-            }else{
+//            var obj = jQuery.parseJSON(dato);
+//        if (obj.CodResponse === "00") {         
+//          var  o = JSON.parse(obj.ListTramitesOficial); 
+            if (data.codRespuesta == "000") {
+                $(location).attr('href', 'index.jsp');
+            } else if (data.codRespuesta == "002"){
                 alert("Usuario Incorrecto");
+            }
+            else{
+                alert("Error en el proceso de login");
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             console.log('error de llamada');
