@@ -22,27 +22,38 @@
     <body class="bg-gradient-primary">
         <script src="js/eventos/utilidades.js"></script>
         <!--Cargar sdk de fb-->
-        <!--script>
-            window.fbAsyncInit = function () {
-                FB.init({
-                    appId: '1637847639937075',
-                    xfbml: true,
-                    version: 'v10.0'
-                });
-                FB.AppEvents.logPageView();
-            };
+        <!--        <script>
+                    window.fbAsyncInit = function () {
+                        FB.init({
+                            appId: '1637847639937075',
+                            xfbml: true,
+                            version: 'v10.0'
+                        });
+                        FB.AppEvents.logPageView();
+                    };
+        
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) {
+                            return;
+                        }
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "https://connect.facebook.net/en_US/sdk.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>-->
 
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script-->
+
+        <script>
+            (function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    if (d.getElementById(id)) return;
+	    js = d.createElement(s); js.id = id;
+	    js.src = "//connect.facebook.net/en_US/sdk.js";
+	    fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));
+        </script>
 
         <div class="container">
 
@@ -87,7 +98,7 @@
                                             </button>
                                             <hr>
                                             <!--botones de consumo de apis de redes sociales-->
-                                            <a href="index.jsp" class="btn btn-facebook btn-user btn-block">
+                                            <a href="#" id="login" class="btn btn-facebook btn-user btn-block">
                                                 <i class="fab fa-facebook-f fa-fw"></i> Login con Facebook
                                             </a>
                                             <a href="index.jsp" class="btn btn-danger btn-user btn-block">
