@@ -26,5 +26,13 @@ and open the template in the editor.
   <session-config>
     <session-timeout>15</session-timeout>
   </session-config>
-   
+  <filter>
+      <filter-name>filtro</filter-name>
+      <filter-class>ug.utils.filtro</filter-class>
+  </filter>
+  
+  <filter-mapping>
+      <filter-name>filtro</filter-name>
+      <url-pattern>/index.jsp</url-pattern>
+  </filter-mapping>
 </web-app>

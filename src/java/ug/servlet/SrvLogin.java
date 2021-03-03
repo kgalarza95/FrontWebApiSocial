@@ -56,15 +56,16 @@ public class SrvLogin extends HttpServlet {
          */
         HttpSession mySession = request.getSession(true);
         System.out.println("opcion: " + opcion);
-        UsuarioSesion us = new UsuarioSesion();
-        us.setPassword(request.getParameter("pass"));
-        us.setUsuario(request.getParameter("usuario"));
-        mySession.setAttribute("usuarioSesion", us);
+//        UsuarioSesion us = new UsuarioSesion();
+//        us.setPassword(request.getParameter("pass"));
+//        us.setUsuario(request.getParameter("usuario"));
+//        mySession.setAttribute("usuarioSesion", us);
 
 //        String jsonResp = 
         switch (opcion) {
             case "ConsultaUsuario":
                 try {
+                    mySession.setAttribute("Session", "false");
                     String usuario = request.getParameter("usuario");
                     String pass = request.getParameter("pass");
 
@@ -73,6 +74,11 @@ public class SrvLogin extends HttpServlet {
                     System.out.println("Json transf "+resJson);
                     if (resJson.get("codRespuesta").equals("000") || resJson.get("codRespuesta").equals("002")) {
                         respParametros = resJson.get("listUsuarios").toString();
+                        mySession.setAttribute("Session", "true");
+                        mySession.setAttribute("usuario", usuario);
+                        if(resJson.get("codRespuesta").equals("002")){
+                            mySession.invalidate();
+                        }
                     }
                     codRespuesta = resJson.get("codRespuesta").toString();
                     menRespuesta = resJson.get("menRespuesta").toString();
@@ -80,6 +86,8 @@ public class SrvLogin extends HttpServlet {
                     System.out.println(e.toString());
                     codRespuesta = "099";
                     menRespuesta = "Error en servlet al consultar usuario";
+                    mySession.setAttribute("Session", "false");
+                    mySession.invalidate();
                 } finally {
                     writer.object();
                     writer.key("respParametros").value(respParametros);
