@@ -3,7 +3,6 @@
 
 
 $(document).ready(function () {
-    console.log("entraaaaaaaaaaaa");
     $(document).on('submit', '#user', function (event) {
         event.preventDefault();
     });
