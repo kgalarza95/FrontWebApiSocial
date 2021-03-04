@@ -101,22 +101,21 @@
                                             <a href="#" id="login" class="btn btn-facebook btn-user btn-block">
                                                 <i class="fab fa-facebook-f fa-fw"></i> Login con Facebook
                                             </a>
-                                            <a href="index.jsp" class="btn btn-danger btn-user btn-block">
+                                            <button id="btn_registrar_insta" class="btn btn-danger btn-user btn-block">
                                                 <i class="fab fab fa-instagram fa-fw"></i> Login con Instagram
-                                            </a>
-                                            <button class="btn btn-primary btn-user btn-block">
+                                            </button>
+                                            <button id="btn_registrar_tw" class="btn btn-primary btn-user btn-block">
                                                 <i class="fab fab fa-twitter fa-fw"></i> Login con Twitter
                                             </button>
 
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="pages\login\forgot-password.jsp">¿Olvidaste tu
+                                            <a class="small" href="pages\login\recuperar-password.jsp">¿Olvidaste tu
                                                 Contraseña?</a>
                                         </div>
                                         <div class="text-center">
-                                            <!--<a class="small" href="register.jsp">Crear una Cuenta!</a>-->
-                                            <a class="small" href="pages\login\register.jsp">Crear una Cuenta!</a>
+                                            <a class="small" href="pages\login\registrar.jsp">Crear una Cuenta!</a>
                                         </div>                     
                                     </div>
                                 </div>

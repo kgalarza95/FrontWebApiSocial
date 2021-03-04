@@ -56,7 +56,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="register.jsp">Crear una Cuenta!</a>
+                                        <a class="small" href="registrar.jsp">Crear una Cuenta!</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="../../login.jsp">¿Ya tienes una cuenta? Accede!</a>
