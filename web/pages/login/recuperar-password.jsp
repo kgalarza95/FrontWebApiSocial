@@ -42,17 +42,27 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">¿Olvidaste tu contraseña?</h1>
                                         <p class="mb-4">Ingrese su direccion de correo electrónico o usuario 
-                                            y lo redirigiremos a una pagina de recuperación</p>
+                                            y luego Ingrese la nueva cntraseña.</p>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" id="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control form-control-user"
+                                                id="txt_usuario" aria-describedby="emailHelp"
                                                 placeholder="Ingrese Mail/Usuario...">
                                         </div>
-                                        <a href="login.jsp" class="btn btn-primary btn-user btn-block">
+                                        <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="password" class="form-control form-control-user"
+                                                   id="txt_contrasenia" placeholder="Contraseña">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="password" class="form-control form-control-user"
+                                                   id="txt_repetir_contrasenia" placeholder="Repetir Contraseña">
+                                        </div>
+                                    </div>
+                                        <button id="btn_reestablecer" class="btn btn-primary btn-user btn-block">
                                             Restablecer Contraseña
-                                        </a>
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -84,6 +94,7 @@
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin-2.min.js"></script>
 
+    <script src="../../js/eventos/adm-cuentas/recuperar-password.js"></script>
 </body>
 
 </html>

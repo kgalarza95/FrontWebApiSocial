@@ -5,25 +5,30 @@
 $(document).ready(function () {
 
     var scopes = 'public_profile,email';
-
+    /**
+     * Importa el componente de Fabook
+     * @returns {undefined}
+     */
     window.fbAsyncInit = function () {
 
         FB.init({
-            appId      : '123104449738799',
-//            appId: '1637847639937075',            
+            appId: '123104449738799',
             status: true,
             cookie: true,
             xfbml: true,
-//            version: 'v10.0'
-            version    : 'v2.1'
+            version: 'v2.1'
         });
 
 
+        /**
+         * Verifiva si esta conectado a facebook
+         */
         FB.getLoginStatus(function (response) {
-            statusChangeCallback(response, function () {});
+            statusChangeCallback(response, function () {
+            });
         });
     };
-
+    
     var statusChangeCallback = function (response, callback) {
 //  		console.log(response);
 
@@ -41,7 +46,7 @@ $(document).ready(function () {
     };
 
     var getFacebookData = function () {
-        FB.api('/me', function (response) {
+        FB.api('/me/likes', 'GET', {}, function (response) {//obtiene los datos del usuario login
             console.log(response);
 
 //	  		$('#login').after(div_session);
@@ -54,10 +59,10 @@ $(document).ready(function () {
     var facebookLogin = function () {
         checkLoginState(function (data) {
             if (data.status !== 'connected') {
-                FB.login(function (response) {
+                FB.login(function (response) {//realiza el login de facebook
                     if (response.status === 'connected')
                         getFacebookData();
-                }, {scope: scopes});
+                }, {scope: scopes});// los permisos
             }
         });
     };
@@ -65,9 +70,8 @@ $(document).ready(function () {
     var facebookLogout = function () {
         checkLoginState(function (data) {
             if (data.status === 'connected') {
-                FB.logout(function (response) {
-                    $('#facebook-session').before(btn_login);
-                    $('#facebook-session').remove();
+                FB.logout(function (response) {// Realiza el logout de FaceBook
+                    //redireccionar a pagina de login
                 });
             }
         });
@@ -110,7 +114,8 @@ $(document).ready(function () {
                 $(location).attr('href', 'index.jsp');
             } else if (data.codRespuesta == "002") {
                 alert("Usuario Incorrecto");
-            } else {
+            }
+            else {
                 alert("Error en el proceso de login");
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {

@@ -37,7 +37,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Crear una Cuenta!</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" id="user">
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
                                             <input type="text" class="form-control form-control-user" id="txt_nombre"
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" id="txt_correo"
+                                        <input type="text" class="form-control form-control-user" id="txt_correo"
                                                placeholder="Direccion Email/usuario...">
                                     </div>
                                     <div class="form-group row">
@@ -105,6 +105,7 @@
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
 
+        <script src="../../js/eventos/adm-cuentas/registrar.js"></script>
     </body>
 
 </html>

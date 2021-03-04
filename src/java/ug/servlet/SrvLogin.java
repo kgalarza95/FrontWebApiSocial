@@ -21,6 +21,7 @@ import org.json.JSONObject;
 import org.json.JSONWriter;
 import ug.bean.UsuarioSesion;
 import ug.cliente.rest.ApiUniversidad;
+import ug.cliente.rest.ApiUniversidad_;
 
 /**
  *
@@ -71,12 +72,12 @@ public class SrvLogin extends HttpServlet {
 
                     respText = ARest.getUsuario(usuario, pass);
                     resJson = new JSONObject(respText);
-                    System.out.println("Json transf "+resJson);
+                    System.out.println("Json transf " + resJson);
                     if (resJson.get("codRespuesta").equals("000") || resJson.get("codRespuesta").equals("002")) {
                         respParametros = resJson.get("listUsuarios").toString();
                         mySession.setAttribute("Session", "true");
                         mySession.setAttribute("usuario", usuario);
-                        if(resJson.get("codRespuesta").equals("002")){
+                        if (resJson.get("codRespuesta").equals("002")) {
                             mySession.invalidate();
                         }
                     }
@@ -86,6 +87,62 @@ public class SrvLogin extends HttpServlet {
                     System.out.println(e.toString());
                     codRespuesta = "099";
                     menRespuesta = "Error en servlet al consultar usuario";
+                    mySession.setAttribute("Session", "false");
+                    mySession.invalidate();
+                } finally {
+                    writer.object();
+                    writer.key("respParametros").value(respParametros);
+                    writer.key("codRespuesta").value(codRespuesta);
+                    writer.key("menRespuesta").value(menRespuesta);
+                    writer.endObject();
+                }
+//                out.println(stringWriter.getBuffer());
+                out.print(stringWriter.toString());
+                break;
+            case "RegistrarUsuario":
+                try {
+                    mySession.setAttribute("Session", "false");
+                    String usuario = request.getParameter("usuario");
+                    String pass = request.getParameter("pass");
+                    String nombres = request.getParameter("nombres");
+                    String apellidos = request.getParameter("apellidos");
+                    
+                    respText = ARest.postUsuario(apellidos, usuario, pass, nombres);
+                    resJson = new JSONObject(respText);
+                    System.out.println("Json transf " + resJson);
+                    codRespuesta = resJson.get("codRespuesta").toString();
+                    menRespuesta = resJson.get("menRespuesta").toString();
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                    codRespuesta = "099";
+                    menRespuesta = "Error en servlet al registrar usuario";
+                    mySession.setAttribute("Session", "false");
+                    mySession.invalidate();
+                } finally {
+                    writer.object();
+                    writer.key("respParametros").value(respParametros);
+                    writer.key("codRespuesta").value(codRespuesta);
+                    writer.key("menRespuesta").value(menRespuesta);
+                    writer.endObject();
+                }
+//                out.println(stringWriter.getBuffer());
+                out.print(stringWriter.toString());
+                break;
+            case "ReestablecerPass":
+                try {
+                    mySession.setAttribute("Session", "false");
+                    String usuario = request.getParameter("usuario");
+                    String pass = request.getParameter("pass");
+
+                    respText = ARest.updatePass(usuario, pass);
+                    resJson = new JSONObject(respText);
+                    System.out.println("Json transf " + resJson);
+                    codRespuesta = resJson.get("codRespuesta").toString();
+                    menRespuesta = resJson.get("menRespuesta").toString();
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                    codRespuesta = "099";
+                    menRespuesta = "Error en servlet al registrar usuario";
                     mySession.setAttribute("Session", "false");
                     mySession.invalidate();
                 } finally {
