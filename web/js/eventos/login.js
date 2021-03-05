@@ -9,18 +9,19 @@ $(document).ready(function () {
     window.fbAsyncInit = function () {
 
         FB.init({
-            appId      : '123104449738799',
+            appId: '123104449738799',
 //            appId: '1637847639937075',            
             status: true,
             cookie: true,
             xfbml: true,
 //            version: 'v10.0'
-            version    : 'v2.1'
+            version: 'v2.1'
         });
 
 
         FB.getLoginStatus(function (response) {
-            statusChangeCallback(response, function () {});
+            statusChangeCallback(response, function () {
+            });
         });
     };
 
@@ -111,7 +112,9 @@ $(document).ready(function () {
             } else if (data.codRespuesta == "002") {
                 alert("Usuario Incorrecto");
             } else {
-                alert("Error en el proceso de login");
+                //alert("Error en el proceso de login");
+                //https://lipis.github.io/bootstrap-sweetalert/ -- url de las demas alert
+                swal("Here's a message!");
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             console.log('error de llamada');

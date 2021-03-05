@@ -17,6 +17,11 @@
         <!-- Estilos personalizados-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <link href="css/estilos_local.css" rel="stylesheet">
+        <script src="js/alert/sweetalert.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+<script src="js/alert/sweetalert.min.js"></script>
+<link rel="stylesheet" href="css/alert/sweetalert.css">
     </head>
 
     <body class="bg-gradient-primary">
