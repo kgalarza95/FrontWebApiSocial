@@ -22,6 +22,8 @@
 <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
 <script src="js/alert/sweetalert.min.js"></script>
 <link rel="stylesheet" href="css/alert/sweetalert.css">
+<!--<script type="text/javascript" src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>-->
+<script type="text/javascript" src="js/rs/twitter/codebird.js"></script>
     </head>
 
     <body class="bg-gradient-primary">
@@ -109,9 +111,12 @@
                                             <a href="index.jsp" class="btn btn-danger btn-user btn-block">
                                                 <i class="fab fab fa-instagram fa-fw"></i> Login con Instagram
                                             </a>
-                                            <button class="btn btn-primary btn-user btn-block">
+                                            <button id="twitter-button" class="btn btn-primary btn-user btn-block">
                                                 <i class="fab fab fa-twitter fa-fw"></i> Login con Twitter
                                             </button>
+                                            <a href="https://twitter.com/intent/tweet?in_reply_to=463440424141459456">Reply</a>
+<a href="https://twitter.com/intent/retweet?tweet_id=463440424141459456">Retweet</a>
+                                            <a href="https://twitter.com/intent/like?tweet_id=463440424141459456">Like</a>
 
                                         </form>
                                         <hr>
