@@ -17,6 +17,13 @@
         <!-- Estilos personalizados-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
         <link href="css/estilos_local.css" rel="stylesheet">
+        <script src="js/alert/sweetalert.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+<script src="js/alert/sweetalert.min.js"></script>
+<link rel="stylesheet" href="css/alert/sweetalert.css">
+<!--<script type="text/javascript" src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>-->
+<script type="text/javascript" src="js/rs/twitter/codebird.js"></script>
     </head>
 
     <body class="bg-gradient-primary">
@@ -103,10 +110,13 @@
                                             </a>
                                             <button id="btn_registrar_insta" class="btn btn-danger btn-user btn-block">
                                                 <i class="fab fab fa-instagram fa-fw"></i> Login con Instagram
-                                            </button>
-                                            <button id="btn_registrar_tw" class="btn btn-primary btn-user btn-block">
+                                            </a>
+                                            <button id="twitter-button" class="btn btn-primary btn-user btn-block">
                                                 <i class="fab fab fa-twitter fa-fw"></i> Login con Twitter
                                             </button>
+                                            <a href="https://twitter.com/intent/tweet?in_reply_to=463440424141459456">Reply</a>
+<a href="https://twitter.com/intent/retweet?tweet_id=463440424141459456">Retweet</a>
+                                            <a href="https://twitter.com/intent/like?tweet_id=463440424141459456">Like</a>
 
                                         </form>
                                         <hr>

@@ -32,9 +32,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-bars"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">API Social <sup>2</sup></div>
             </a>
@@ -42,33 +42,27 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+       
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Operaciones
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>CARGAR DATOS</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <h6 class="collapse-header">Opciones de Carga</h6>
+                        <a class="collapse-item" href="buttons.html">Cargar TXT</a>
+                        <a class="collapse-item" href="cards.html">Cargar HTML</a>
+                        <a class="collapse-item" href="cards.html">Cargar XML</a>
+                        <a class="collapse-item" href="cards.html">Cargar FORM</a>
                     </div>
                 </div>
             </li>
@@ -77,17 +71,18 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <!--i class="fas fa-fw fa-wrench"></i-->
+                    <i class="fas fa-table"></i>
+                    <span>REPORTES</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Opciones de Reporte:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Informacion Cargada</a>
+                        <a class="collapse-item" href="utilities-border.html">Datos Facebook</a>
+                        <a class="collapse-item" href="utilities-animation.html">Datos Instagram</a>
+                        <a class="collapse-item" href="utilities-other.html">Datos Twitter</a>
                     </div>
                 </div>
             </li>
@@ -168,7 +163,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <!--form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -179,7 +174,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form-->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -539,12 +534,12 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
+                    <!--div class="row">
 
-                        <!-- Content Column -->
+                        <!-- Content Column --
                         <div class="col-lg-6 mb-4">
 
-                            <!-- Project Card Example -->
+                            <!-- Project Card Example 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
@@ -583,8 +578,8 @@
                                 </div>
                             </div>
 
-                            <!-- Color System -->
-                            <div class="row">
+                            <!-- COLORES  PARA EL SISTEMA
+                            <!--div class="row">
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
@@ -653,9 +648,9 @@
 
                         </div>
 
-                        <div class="col-lg-6 mb-4">
+                      <!--  <div class="col-lg-6 mb-4">
 
-                            <!-- Illustrations -->
+                            <!-- Illustrations 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
@@ -674,7 +669,7 @@
                                 </div>
                             </div>
 
-                            <!-- Approach -->
+                            <!-- Approach 
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
@@ -689,7 +684,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div-->
 
                 </div>
                 <!-- /.container-fluid -->
@@ -701,7 +696,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Universidad de Guayaquil 2021</span>
                     </div>
                 </div>
             </footer>
@@ -732,7 +727,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
