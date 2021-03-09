@@ -23,8 +23,8 @@
 
     </head>
 
-    
-    
+
+
     <body id="page-top">
 
         <!-- Page Wrapper -->
@@ -141,7 +141,7 @@
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <div class="topbar-divider d-none d-sm-block"></div>     
-                            
+
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -149,7 +149,7 @@
                                     <img class="img-profile rounded-circle"
                                          src="../../img/undraw_profile.svg">
                                 </a>
-                                
+
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
 
@@ -163,16 +163,73 @@
                                         Cerrar Sesión
                                     </a>
                                 </div>
-                                
+
                             </li>
                         </ul>
-                        
+
                     </nav>
 
 
                     <div class="container-fluid">
                         <!-- Content Row -->
                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="well well-sm">
+                                    <form class="form-horizontal">
+                                        <fieldset>
+                                            <legend class="text-center header">CARGA DE INFORMACION POR FORMULARIO</legend>
+
+                                            <div class="form-group">
+                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                <div class="col-md-8">
+                                                    <input id="primer_nombre" name="name" type="text" placeholder="Ingrese Nombres..." class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                <div class="col-md-8">
+                                                    <input id="segundo_nombre" name="name" type="text" placeholder="Ingrese Apellidos..." class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-edge bigicon"></i></span>
+                                                <div class="col-md-4">
+                                                    <input id="txt_edad" name="txt_edad" type="text" placeholder="Ingrese Edad..." class="form-control">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-hotel bigicon"></i></span>
+                                                <div class="col-md-4">
+                                                    <input id="txt_direccion" name="txt_direccion" type="text" placeholder="Ingrese Direccion..." class="form-control">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                                                <div class="col-md-8">
+                                                    <input id="txt_telefono" name="txt_telefono" type="text" placeholder="Ingrese numero de telefono..." class="form-control">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-times-circle-o bigicon"></i></span>
+                                                <div class="col-md-4">
+                                                    <input id="txt_fecha" name="txt_fecha" type="date" placeholder="Ingrese fecha de nacimiento..." class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-12 text-center">
+                                                    <button type="button" class="btn btn-primary btn-lg">Guardar</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
