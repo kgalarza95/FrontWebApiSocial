@@ -20,13 +20,12 @@
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+     
     </head>
 
-    
-    
-    <body id="page-top">
 
+
+    <body id="page-top">
         <!-- Page Wrapper -->
         <div id="wrapper">
 
@@ -62,9 +61,9 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Opciones de Carga</h6>
                             <a class="collapse-item" href="pages/cargardatos/cargartxt.jsp">Cargar TXT</a>
-                            <a class="collapse-item" href="cards.html">Cargar HTML</a>
-                            <a class="collapse-item" href="cards.html">Cargar XML</a>
-                            <a class="collapse-item" href="cards.html">Cargar FORM</a>
+                            <a class="collapse-item" href="pages/cargardatos/cargarhtml.jsp">Cargar HTML</a>
+                            <a class="collapse-item" href="pages/cargardatos/cargarxml.jsp">Cargar XML</a>
+                            <a class="collapse-item" href="pages/cargardatos/cargarform.jsp">Cargar FORM</a>
                         </div>
                     </div>
                 </li>
@@ -81,10 +80,10 @@
                          data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Opciones de Reporte:</h6>
-                            <a class="collapse-item" href="utilities-color.html">Informacion Cargada</a>
-                            <a class="collapse-item" href="utilities-border.html">Datos Facebook</a>
-                            <a class="collapse-item" href="utilities-animation.html">Datos Instagram</a>
-                            <a class="collapse-item" href="utilities-other.html">Datos Twitter</a>
+                            <a class="collapse-item" href="pages/reportes/infocargada.jsp">Informacion Cargada</a>
+                            <a class="collapse-item" href="pages/reportes/datosfb.jsp">Datos Facebook</a>
+                            <a class="collapse-item" href="pages/reportes/datosinstagram.jsp">Datos Instagram</a>
+                            <a class="collapse-item" href="pages/reportes/datostw.jsp">Datos Twitter</a>
                         </div>
                     </div>
                 </li>
@@ -153,7 +152,7 @@
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <div class="topbar-divider d-none d-sm-block"></div>     
-                            
+
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -161,7 +160,7 @@
                                     <img class="img-profile rounded-circle"
                                          src="img/undraw_profile.svg">
                                 </a>
-                                
+
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
 
@@ -175,10 +174,10 @@
                                         Cerrar Sesión
                                     </a>
                                 </div>
-                                
+
                             </li>
                         </ul>
-                        
+
                     </nav>
 
 
@@ -238,12 +237,6 @@
         <!-- Custom scripts for all pages-->
         <script src="js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="vendor/chart.js/Chart.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
 
     </body>
 
