@@ -23,8 +23,8 @@
 
     </head>
 
-    
-    
+
+
     <body id="page-top">
 
         <!-- Page Wrapper -->
@@ -141,7 +141,7 @@
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <div class="topbar-divider d-none d-sm-block"></div>     
-                            
+
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -149,7 +149,7 @@
                                     <img class="img-profile rounded-circle"
                                          src="../../img/undraw_profile.svg">
                                 </a>
-                                
+
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
 
@@ -163,16 +163,89 @@
                                         Cerrar Sesión
                                     </a>
                                 </div>
-                                
+
                             </li>
                         </ul>
-                        
+
                     </nav>
 
 
                     <div class="container-fluid">
                         <!-- Content Row -->
+
                         <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="widget content-formularios">
+                                    <div class="widget-header ">
+                                        <h2> Cargar Archivos</h2>
+                                    </div>
+                                    <hr>
+                                    <div class="widget-content padding">       
+                                        <div class="col-sm-12">
+                                            <form id="form_registros" autocomplete="off" enctype="multipart/form-data">
+                                                <div class="col-sm-12">
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group row">
+                                                                <label for="txt_cargar_txt" class="col-sm-2 control-label">Archivo TXT</label>
+                                                                <div class="col-sm-8">
+                                                                    <input id="txt_cargar_txt" type="text" class="form-control" name="txt_cargar_txt" placeholder="Cargar Archivo TXT." readonly="readonly"> 
+                                                                </div>
+
+
+                                                                <div class="col-sm-2">                            
+                                                                    <input type="file" id="abrir_txt" hidden="hidden">
+                                                                    <button id="btn_cargar_txt"  type="button"  title="cargar TXT" class="btn btn-primary  btn-add">cargar</button>                                                                       
+                                                                </div>
+                                                            </div>                                            
+                                                        </div>
+                                                    </div>  
+                                                </div>
+
+                                            </form>                             
+                                        </div>                         
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>            
+
+
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="widget">
+                                    <div class="widget-header ">
+                                        <h2><i class="fa fa-table"></i> Registros de Archivo</h2>
+                                    </div>
+                                    <div class="widget-content padding">
+                                        <div id="horizontal-form">
+                                            <div class="row">
+                                                <div class="col-sm-12 ">
+                                                    <table id="table_registros" class="table table-striped table-bordered" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>id_tabla</th>
+                                                                <th>primer_nombre</th>
+                                                                <th>segundo_nombre</th>
+                                                                <th>prmer_apellido</th>
+                                                                <th>segundo_apellido</th>
+                                                                <th>edad</th>
+                                                                <th>direccion</th>
+                                                                <th>telefono</th>
+                                                                <th>fecha_nacimiento</th>
+                                                            </tr>
+                                                        </thead>                                        
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div_guardar col-md-12">      
+                                <button id="btn_guardar_archivo"  type="button"  title="Guardar Informacion" class="btn btn-primary  btn-add">Guardar</button>                                                                      
+                            </div>
                         </div>
                     </div>
 
@@ -226,13 +299,8 @@
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="../../vendor/chart.js/Chart.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="../../js/demo/chart-area-demo.js"></script>
-        <script src="../../js/demo/chart-pie-demo.js"></script>
-
+      
+        <script src="../../js/eventos/cargardatos/cargarxml.js?v=1" type="text/javascript"></script>
     </body>
 
 </html>
