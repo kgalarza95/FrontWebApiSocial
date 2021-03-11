@@ -22,6 +22,7 @@ import org.json.JSONWriter;
 import ug.bean.UsuarioSesion;
 import ug.cliente.rest.ApiUniversidad;
 import ug.cliente.rest.ApiUniversidad_;
+import ug.cliente.rest.RESTUNI;
 
 /**
  *
@@ -46,6 +47,7 @@ public class SrvLogin extends HttpServlet {
         String opcion = request.getParameter("opcion");
         String respText, menRespuesta = "009", codRespuesta = "Error - no usada", respParametros = "";
         ApiUniversidad ARest = new ApiUniversidad();
+        RESTUNI ARest2 = new RESTUNI();
         PrintWriter out = response.getWriter();
         //formando JOSON
         StringWriter stringWriter = new StringWriter();
@@ -70,7 +72,9 @@ public class SrvLogin extends HttpServlet {
                     String usuario = request.getParameter("usuario");
                     String pass = request.getParameter("pass");
 
-                    respText = ARest.getUsuario(usuario, pass);
+//                    respText = ARest.getUsuario(usuario, pass);
+                    respText = ARest2.getUsuario(usuario, pass);
+
                     resJson = new JSONObject(respText);
                     System.out.println("Json transf " + resJson);
                     if (resJson.get("codRespuesta").equals("000") || resJson.get("codRespuesta").equals("002")) {
@@ -106,8 +110,10 @@ public class SrvLogin extends HttpServlet {
                     String pass = request.getParameter("pass");
                     String nombres = request.getParameter("nombres");
                     String apellidos = request.getParameter("apellidos");
-                    
-                    respText = ARest.postUsuario(apellidos, usuario, pass, nombres);
+
+//                    respText = ARest.postUsuario(apellidos, usuario, pass, nombres);
+                    respText = ARest2.postUsuario(apellidos, usuario, pass, nombres);
+
                     resJson = new JSONObject(respText);
                     System.out.println("Json transf " + resJson);
                     codRespuesta = resJson.get("codRespuesta").toString();
@@ -134,7 +140,9 @@ public class SrvLogin extends HttpServlet {
                     String usuario = request.getParameter("usuario");
                     String pass = request.getParameter("pass");
 
-                    respText = ARest.updatePass(usuario, pass);
+//                    respText = ARest.updatePass(usuario, pass);
+                    respText = ARest2.updatePass(usuario, pass);
+
                     resJson = new JSONObject(respText);
                     System.out.println("Json transf " + resJson);
                     codRespuesta = resJson.get("codRespuesta").toString();
@@ -155,8 +163,33 @@ public class SrvLogin extends HttpServlet {
 //                out.println(stringWriter.getBuffer());
                 out.print(stringWriter.toString());
                 break;
+            case "cerrarSesion":
+                System.out.println("LLego a cerrar sesion");
+                try {
+                    mySession.setAttribute("Session", "false");
+                    mySession.setAttribute("usuario", null);
+                        mySession.invalidate();
+                        codRespuesta = "000";
+                        menRespuesta = "Sesion Cerrada";
+                    }catch (Exception e) {
+                    System.out.println(e.toString());
+                    codRespuesta = "099";
+                    menRespuesta = "Error en servlet ";
+                    mySession.setAttribute("Session", "false");
+                    mySession.invalidate();
+                }finally {
+                    writer.object();
+                    writer.key("codRespuesta").value(codRespuesta);
+                    writer.key("menRespuesta").value(menRespuesta);
+                    writer.endObject();
+                }
+//                out.println(stringWriter.getBuffer());
+                    out.print(stringWriter.toString());
+                    break;
 
-            default:
+                
+        
+        default:
                 throw new AssertionError();
         }
     }
@@ -171,33 +204,37 @@ public class SrvLogin extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        protected void doGet
+        (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            processRequest(request, response);
+        }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        /**
+         * Handles the HTTP <code>POST</code> method.
+         *
+         * @param request servlet request
+         * @param response servlet response
+         * @throws ServletException if a servlet-specific error occurs
+         * @throws IOException if an I/O error occurs
+         */
+        @Override
+        protected void doPost
+        (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            processRequest(request, response);
+        }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
+        /**
+         * Returns a short description of the servlet.
+         *
+         * @return a String containing servlet description
+         */
+        @Override
+        public String getServletInfo
+        
+            () {
         return "Short description";
-    }// </editor-fold>
+        }// </editor-fold>
 
-}
+    }

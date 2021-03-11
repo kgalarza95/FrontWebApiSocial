@@ -90,13 +90,25 @@ $(document).ready(function () {
 //        if (obj.CodResponse === "00") {         
 //          var  o = JSON.parse(obj.ListTramitesOficial); 
             if (data.codRespuesta == "000") {
+//                swal("UG!", "Acceso Exitoso!", "success")
+                swal({
+                    type:"success",//error",
+                    title:"UG!",
+                    text:"Acceso Exitoso"
+                });
                 $(location).attr('href', 'index.jsp');
             } else if (data.codRespuesta == "002") {
-                alert("Usuario Incorrecto");
+                //alert("Usuario Incorrecto");
+                //swal("Oh no! Un Error.","Usuario Incorrecto!");
+                swal({
+                    type:"error",//error",
+                    title:"UG ERROR!",
+                    text:"Usuario Incorrecto"
+                });
             } else {
 //alert("Error en el proceso de login");
 //https://lipis.github.io/bootstrap-sweetalert/ -- url de las demas alert
-                swal("Here's a message!");
+                //swal("Here's a message!");
             }
         }).fail(function (jqXHR, textStatus, errorThrown) {
             console.log('error de llamada');

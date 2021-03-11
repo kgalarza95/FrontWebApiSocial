@@ -24,8 +24,6 @@
         <link rel="stylesheet" type="text/css" href="../../datatables/DataTables-1.10.23/css/dataTables.bootstrap4.min.css"/>
         <link rel="stylesheet" type="text/css" href="../../datatables/Buttons-1.6.5/css/buttons.bootstrap4.min.css"/>
 
-
-
     </head>
 
 
@@ -217,7 +215,29 @@
 
                         </div>            
 
-
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <div class="widget content-formularios">
+                                    <div class="widget-header ">
+                                        <h2><i class="fa fa-pencil-square-o"></i> Novedades</h2>
+                                    </div>
+                                    <div class="widget-content padding">       
+                                        <div class="col-sm-12">                             
+                                            <div class="col-sm-12">                                    
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="col-sm-12">
+                                                            <textarea id="txt_novedades" class="form-control" name="txt_novedades" readonly="readonly"></textarea> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                         
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        
                         <div class="row">
                             <div class="col-sm-12 ">
                                 <div class="widget">
@@ -289,7 +309,7 @@
                     <div class="modal-body">Seleccione el boton Cerrar Sesión para salir del sistema.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" >Cerrar Sesión</a>
+                        <a id="cerrar_sesion" class="btn btn-primary" >Cerrar Sesión</a>
                     </div>
                 </div>
             </div>
@@ -313,7 +333,10 @@
         <script type="text/javascript" src="../../datatables/Buttons-1.6.5/js/buttons.bootstrap4.min.js"></script>
         <script type="text/javascript" src="../../datatables/Buttons-1.6.5/js/buttons.html5.min.js"></script>
         <script type="text/javascript" src="../../datatables/Buttons-1.6.5/js/buttons.print.min.js"></script>
+        <script src="../../js/alert/sweetalert.min.js"></script>
+        <link rel="../../stylesheet" href="css/alert/sweetalert.css">
         <script src="../../js/eventos/cargardatos/cargartxt.js?v=1" type="text/javascript"></script>
+
     </body>
 
 </html>

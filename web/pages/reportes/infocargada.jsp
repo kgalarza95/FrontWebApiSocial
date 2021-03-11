@@ -210,7 +210,7 @@
                     <div class="modal-body">Seleccione el boton Cerrar Sesión para salir del sistema.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" >Cerrar Sesión</a>
+                        <a id="cerrar_sesion" class="btn btn-primary" >Cerrar Sesión</a>
                     </div>
                 </div>
             </div>
@@ -226,7 +226,7 @@
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
 
-     
+        <script src="../../js/eventos/reportes/infocargada.js?v=1" type="text/javascript"></script>
     </body>
 
 </html>

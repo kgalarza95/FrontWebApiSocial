@@ -283,7 +283,7 @@
                     <div class="modal-body">Seleccione el boton Cerrar Sesión para salir del sistema.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" >Cerrar Sesión</a>
+                        <a id="cerrar_sesion" class="btn btn-primary" >Cerrar Sesión</a>
                     </div>
                 </div>
             </div>

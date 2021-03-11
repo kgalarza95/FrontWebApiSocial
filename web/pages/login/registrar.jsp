@@ -19,6 +19,8 @@
 
         <!-- Custom styles for this template-->
         <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+        <script src="../../js/alert/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="../../css/alert/sweetalert.css">
 
     </head>
 

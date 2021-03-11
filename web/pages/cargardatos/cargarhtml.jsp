@@ -23,8 +23,8 @@
 
     </head>
 
-    
-    
+
+
     <body id="page-top">
 
         <!-- Page Wrapper -->
@@ -141,7 +141,7 @@
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <div class="topbar-divider d-none d-sm-block"></div>     
-                            
+
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -149,7 +149,7 @@
                                     <img class="img-profile rounded-circle"
                                          src="../../img/undraw_profile.svg">
                                 </a>
-                                
+
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
 
@@ -163,16 +163,16 @@
                                         Cerrar Sesión
                                     </a>
                                 </div>
-                                
+
                             </li>
                         </ul>
-                        
+
                     </nav>
 
 
                     <div class="container-fluid">
                         <!-- Content Row -->
-                         <div class="row">
+                        <div class="row">
                             <div class="col-sm-12 ">
                                 <div class="widget content-formularios">
                                     <div class="widget-header ">
@@ -282,7 +282,7 @@
                     <div class="modal-body">Seleccione el boton Cerrar Sesión para salir del sistema.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" >Cerrar Sesión</a>
+                        <a id="cerrar_sesion" class="btn btn-primary" >Cerrar Sesión</a>
                     </div>
                 </div>
             </div>
@@ -297,7 +297,7 @@
 
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
-
+        <script src="../../js/eventos/cargardatos/cargarhtml.js?v=1" type="text/javascript"></script>
     </body>
 
 </html>
