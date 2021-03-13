@@ -92,7 +92,7 @@ public class SrvProcesos extends HttpServlet {
                     }
                     //enviar datos al ws
 //                    respText = ARest2.postUsuario(apellidos, usuario, pass, nombres);
-respText="";
+                    respText = "";
                     resJson = new JSONObject(respText);
                     System.out.println("Json transf " + resJson);
                     codRespuesta = resJson.get("codRespuesta").toString();
