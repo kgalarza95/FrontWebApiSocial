@@ -75,7 +75,7 @@ $(document).ready(function () {
     $('#btn_acceder').click(function () {
         usuario = $("#txt_usuario").val();
         pass = $("#txt_contrasenia").val();
-        console.log('press...');
+        console.log('!press...');
         $.ajax({
             type: "GET",
             dataType: "json",

@@ -142,10 +142,7 @@ function validarContenido(contenido) {
             if (!valNumerico(columnas[index])) {
                 mnsjError += "c[" + (index + 1) + "] Debe ser númerico && ";
             }
-            if (columnas[index] != indice) {
-                archivoValidado = false;
-                mnsjError += "c[" + (index + 1) + "] Indice incorrecto && ";
-            }
+          
 
             obj.primerNombre = columnas[++index];
             if (valVacio(columnas[index])) {

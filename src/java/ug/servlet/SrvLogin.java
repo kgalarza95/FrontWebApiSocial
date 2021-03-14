@@ -21,8 +21,7 @@ import org.json.JSONObject;
 import org.json.JSONWriter;
 import ug.bean.UsuarioSesion;
 import ug.cliente.rest.ApiUniversidad;
-import ug.cliente.rest.ApiUniversidad_;
-import ug.cliente.rest.RESTUNI;
+//import ug.cliente.rest.RESTUNI;
 
 /**
  *
@@ -47,7 +46,7 @@ public class SrvLogin extends HttpServlet {
         String opcion = request.getParameter("opcion");
         String respText, menRespuesta = "009", codRespuesta = "Error - no usada", respParametros = "";
         ApiUniversidad ARest = new ApiUniversidad();
-        RESTUNI ARest2 = new RESTUNI();
+//        RESTUNI ARest2 = new RESTUNI();
         PrintWriter out = response.getWriter();
         //formando JOSON
         StringWriter stringWriter = new StringWriter();
@@ -72,8 +71,8 @@ public class SrvLogin extends HttpServlet {
                     String usuario = request.getParameter("usuario");
                     String pass = request.getParameter("pass");
 
-//                    respText = ARest.getUsuario(usuario, pass);
-                    respText = ARest2.getUsuario(usuario, pass);
+                    respText = ARest.getUsuario(usuario, pass);
+//                    respText = ARest2.getUsuario(usuario, pass);
 
                     resJson = new JSONObject(respText);
                     System.out.println("Json transf " + resJson);
@@ -111,8 +110,8 @@ public class SrvLogin extends HttpServlet {
                     String nombres = request.getParameter("nombres");
                     String apellidos = request.getParameter("apellidos");
 
-//                    respText = ARest.postUsuario(apellidos, usuario, pass, nombres);
-                    respText = ARest2.postUsuario(apellidos, usuario, pass, nombres);
+                    respText = ARest.postUsuario(apellidos, usuario, pass, nombres);
+//                    respText = ARest2.postUsuario(apellidos, usuario, pass, nombres);
 
                     resJson = new JSONObject(respText);
                     System.out.println("Json transf " + resJson);
@@ -140,8 +139,8 @@ public class SrvLogin extends HttpServlet {
                     String usuario = request.getParameter("usuario");
                     String pass = request.getParameter("pass");
 
-//                    respText = ARest.updatePass(usuario, pass);
-                    respText = ARest2.updatePass(usuario, pass);
+                    respText = ARest.updatePass(usuario, pass);
+//                    respText = ARest2.updatePass(usuario, pass);
 
                     resJson = new JSONObject(respText);
                     System.out.println("Json transf " + resJson);

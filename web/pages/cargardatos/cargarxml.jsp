@@ -20,7 +20,8 @@
 
         <!-- Custom styles for this template-->
         <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="../../datatables/DataTables-1.10.23/css/dataTables.bootstrap4.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../../datatables/Buttons-1.6.5/css/buttons.bootstrap4.min.css"/>
     </head>
 
 
@@ -177,7 +178,7 @@
                             <div class="col-sm-12 ">
                                 <div class="widget content-formularios">
                                     <div class="widget-header ">
-                                        <h2> Cargar Archivos</h2>
+                                        <h2> Cargar Archivos XML</h2>
                                     </div>
                                     <hr>
                                     <div class="widget-content padding">       
@@ -188,15 +189,15 @@
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group row">
-                                                                <label for="txt_cargar_txt" class="col-sm-2 control-label">Archivo TXT</label>
+                                                                <label for="txt_cargar_xml" class="col-sm-2 control-label">Archivo XML</label>
                                                                 <div class="col-sm-8">
-                                                                    <input id="txt_cargar_txt" type="text" class="form-control" name="txt_cargar_txt" placeholder="Cargar Archivo TXT." readonly="readonly"> 
+                                                                    <input id="txt_cargar_xml" type="text" class="form-control" name="txt_cargar_xml" placeholder="Cargar Archivo XML." readonly="readonly"> 
                                                                 </div>
 
 
                                                                 <div class="col-sm-2">                            
-                                                                    <input type="file" id="abrir_txt" hidden="hidden">
-                                                                    <button id="btn_cargar_txt"  type="button"  title="cargar TXT" class="btn btn-primary  btn-add">cargar</button>                                                                       
+                                                                    <input type="file" id="abrir_xml" hidden="hidden">
+                                                                    <button id="btn_cargar_xml"  type="button"  title="cargar XML" class="btn btn-primary  btn-add">cargar</button>                                                                       
                                                                 </div>
                                                             </div>                                            
                                                         </div>
@@ -298,8 +299,18 @@
 
         <!-- Custom scripts for all pages-->
         <script src="../../js/sb-admin-2.min.js"></script>
+        <script type="text/javascript" src="../../datatables/JSZip-2.5.0/jszip.min.js"></script>
+        <script type="text/javascript" src="../../datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="../../datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+        <script type="text/javascript" src="../../datatables/DataTables-1.10.23/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../../datatables/DataTables-1.10.23/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript" src="../../datatables/Buttons-1.6.5/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="../../datatables/Buttons-1.6.5/js/buttons.bootstrap4.min.js"></script>
+        <script type="text/javascript" src="../../datatables/Buttons-1.6.5/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="../../datatables/Buttons-1.6.5/js/buttons.print.min.js"></script>
+        <script src="../../js/alert/sweetalert.min.js"></script>
+        <link rel="../../stylesheet" href="css/alert/sweetalert.css">
 
-      
         <script src="../../js/eventos/cargardatos/cargarxml.js?v=1" type="text/javascript"></script>
     </body>
 

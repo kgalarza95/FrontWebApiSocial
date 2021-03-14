@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
 import org.json.JSONWriter;
 import ug.cliente.rest.ApiUniversidad;
-import ug.cliente.rest.RESTUNI;
+//import ug.cliente.rest.RESTUNI;
 import ug.utils.detalleArchivos;
 
 /**
@@ -48,7 +48,7 @@ public class SrvProcesos extends HttpServlet {
         String opcion = request.getParameter("opcion");
         String respText, menRespuesta = "009", codRespuesta = "Error - no usada", respParametros = "";
         ApiUniversidad ARest = new ApiUniversidad();
-        RESTUNI ARest2 = new RESTUNI();
+//        RESTUNI ARest2 = new RESTUNI();
         PrintWriter out = response.getWriter();
         //formando JOSON
         StringWriter stringWriter = new StringWriter();
@@ -78,25 +78,31 @@ public class SrvProcesos extends HttpServlet {
                         detalleArchivos detalle = new detalleArchivos();
                         String[] columna = fila.split("\\t");
 
-                        detalle.setId_tabla(columna[col]);
-                        detalle.setPrimer_nombre(columna[++col]);
-                        detalle.setSegundo_nombre(columna[++col]);
-                        detalle.setPrmer_apellido(columna[++col]);
-                        detalle.setSegundo_apellido(columna[++col]);
-                        detalle.setEdad(columna[++col]);
-                        detalle.setDireccion(columna[++col]);
-                        detalle.setTelefono(columna[++col]);
-                        detalle.setFecha_nacimiento(columna[++col]);
-                        detallesArchivos.add(detalle);
-                        System.out.println(detalle.toString());
+//                        detalle.setId_tabla(columna[col]);
+//                        detalle.setPrimer_nombre(columna[++col]);
+//                        detalle.setSegundo_nombre(columna[++col]);
+//                        detalle.setPrmer_apellido(columna[++col]);
+//                        detalle.setSegundo_apellido(columna[++col]);
+//                        detalle.setEdad(columna[++col]);
+//                        detalle.setDireccion(columna[++col]);
+//                        detalle.setTelefono(columna[++col]);
+//                        detalle.setFecha_nacimiento(columna[++col]);
+//                        detallesArchivos.add(detalle);
+//                        System.out.println(detalle.toString());
+                        
+                        ARest.getCargarArchivoParametros(columna[col], columna[++col], columna[++col]
+                                , columna[++col], columna[++col], columna[++col], columna[++col], columna[++col]
+                                ,columna[++col]);
                     }
                     //enviar datos al ws
-//                    respText = ARest2.postUsuario(apellidos, usuario, pass, nombres);
-                    respText = "";
-                    resJson = new JSONObject(respText);
-                    System.out.println("Json transf " + resJson);
-                    codRespuesta = resJson.get("codRespuesta").toString();
-                    menRespuesta = resJson.get("menRespuesta").toString();
+                    
+//                    respText = "";
+//                    resJson = new JSONObject(respText);
+//                    System.out.println("Json transf " + resJson);
+//                    codRespuesta = resJson.get("codRespuesta").toString();
+//                    menRespuesta = resJson.get("menRespuesta").toString();
+                    codRespuesta = "00";
+                    menRespuesta = "Transaccion Ok";
                 } catch (Exception e) {
                     System.out.println(e.toString());
                     codRespuesta = "099";
